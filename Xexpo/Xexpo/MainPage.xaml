@@ -1,11 +1,20 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Xexpo"
-             x:Class="Xexpo.MainPage">
+             x:Class="Xexpo.MainPage"  Title="Load XAML (Dynamic Rendering)">
 
-	<Label Text="Welcome to Xamarin Forms!" 
-           VerticalOptions="Center" 
-           HorizontalOptions="Center" />
+   <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60*" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="40*" />
+        </Grid.RowDefinitions>
+
+        <Editor x:Name="XAMLBox" />
+        <Button Text="Render" Grid.Row="1" x:Name="RenderButton" />
+        <ContentView x:Name="ContentBox" Grid.Row="2" />
+
+    </Grid>
 
 </ContentPage>
