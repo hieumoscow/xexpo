@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:Xexpo"
+             xmlns:local="clr-namespace:Xexpo" 
              x:Class="Xexpo.MainPage"  Title="Load XAML (Dynamic Rendering)">
 
    <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions><!--
+        <Grid.RowDefinitions>
             <RowDefinition Height="60*" />
             <RowDefinition Height="30" />
             <RowDefinition Height="40*" />
-        </Grid.RowDefinitions>
+        </Grid.RowDefinitions>-->
 
-        <Editor x:Name="XAMLBox" />
+<!--        <Editor x:Name="XAMLBox" />-->
         <Button Text="Render" Grid.Row="1" x:Name="RenderButton" />
-        <ContentView x:Name="ContentBox" Grid.Row="2" />
-
+<!--        <local:LoginPage x:Name="ContentBox" Grid.Row="2" />-->
+<ContentView x:Name="ContentBox" Grid.Row="2" />
     </Grid>
 
 </ContentPage>

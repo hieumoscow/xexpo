@@ -16,6 +16,13 @@ namespace Xexpo
             MainPage = new Xexpo.MainPage();
         }
 
+        private void LoadAssets()
+        {
+            //            var c = LoadAsset<ContractResp>("HomeCreditMock.MockData.ViewContract.json");
+            //            var i = LoadAsset<InstalmentsResp>("HomeCreditMock.MockData.ViewInstalments.json");
+            //            var p = LoadAsset<PaymentsResp>("HomeCreditMock.MockData.ViewPayments.json");
+        }
+
         protected override void OnStart()
         {
             // Handle when your app starts
