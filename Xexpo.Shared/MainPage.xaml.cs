@@ -33,12 +33,21 @@ namespace Xexpo
         /// <param name="e">E.</param>
         private async void RenderButton_Clicked(object sender, EventArgs e)
         {
-            var xaml = await RestService.Current.GetXamlAsync("https://gist.githubusercontent.com/flusharcade/9bee4a6402b365fad2cba743536f9bcc/raw/5e7fb180d9ac0b876bfbf0243d386ef02a21e13a/MapView.xaml");
+            // XAML example
+            var xaml = await RestService.Current.GetXamlAsync("https://gist.githubusercontent.com/flusharcade/e1822c058c331c847a74bdf464ce766a/raw/a684ded672b6f480b7c43690604a4d8a77ad2fbc/TestView");
 
             if (!string.IsNullOrEmpty(xaml))
             {
                 ContentBox.Content = VerifyXaml(xaml);
             }
+
+            // CSharp example - still working on this.
+            //var csharp = await RestService.Current.GetCSharpAsync("https://gist.githubusercontent.com/flusharcade/b3606cdf130df4b33345c03e776516bb/raw/3278bad3f480c8eacb35d26d84f6cc31caae2f7c/EmbeddedView.cs");
+
+            //if (!string.IsNullOrEmpty(csharp))
+            //{
+            //    ContentBox.Content = VerifyCSharp(csharp);
+            //}
         }
 
         /// <summary>
@@ -51,6 +60,25 @@ namespace Xexpo
             try
             {
                 return XamlReader.Load<ContentView>(xaml);
+            }
+            catch (Exception e)
+            {
+                var errorView = new ErrorsContentView();
+                errorView.Label.Text = e.InnerException?.Message;
+                return errorView;
+            }
+        }
+
+        /// <summary>
+        /// Verifies the CS harp.
+        /// </summary>
+        /// <returns>The CS harp.</returns>
+        /// <param name="csharp">Csharp.</param>
+        private View VerifyCSharp(string csharp)
+        {
+            try
+            {
+                return CSharpReader.Load<ContentView>(csharp);
             }
             catch (Exception e)
             {

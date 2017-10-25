@@ -24,5 +24,11 @@ namespace Xexpo.Services
             var resp = await _httpService.GetAsync(url);
             return resp;
         }
+
+        public async Task<string> GetCSharpAsync(string url)
+        {
+            var resp = await _httpService.GetAsync(url);
+            return resp;
+        }
     }
 }
